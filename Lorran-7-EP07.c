@@ -26,7 +26,7 @@ int main(){
 
     for(int j=0;j<tamanhoVetor;j++){
         if(medias[j]<mediaTurma) contador += 1;
-        printf("%04d \t\t\t\t%.2f \t%.2f \t%.2f\n", matriculas[j], nota01[j], nota02[j], medias[j]);
+        printf("%04d \t\t\t\t%.2f \t\t%.2f \t\t%.2f\n", matriculas[j], nota01[j], nota02[j], medias[j]);
 
     }
 
