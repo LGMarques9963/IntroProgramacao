@@ -1,12 +1,12 @@
 // #include <stdio.h>
 
-#define tamanhoVetor 5
+#define TamanhoVetor 5
 int main(){
-    int matriculas[tamanhoVetor], contador;
-    float nota01[tamanhoVetor], nota02[tamanhoVetor], medias[tamanhoVetor], mediaTurma;
+    int matriculas[TamanhoVetor], contador;
+    float nota01[TamanhoVetor], nota02[TamanhoVetor], medias[TamanhoVetor], mediaTurma;
     mediaTurma = 0;
     contador = 0;
-    for(int i=0;i<tamanhoVetor;i++){
+    for(int i=0;i<TamanhoVetor;i++){
         medias[i] = 0;
         printf("Digite a matricula do %d aluno: ", (i+1));
         scanf("%d", &matriculas[i]);
@@ -20,11 +20,11 @@ int main(){
         mediaTurma += medias[i];
     }
 
-    mediaTurma = mediaTurma/tamanhoVetor;
+    mediaTurma = mediaTurma/TamanhoVetor;
 
     printf("No. Matricula \t\t\tNota 01 \tNota 02 \tNotaFinal\n");
 
-    for(int j=0;j<tamanhoVetor;j++){
+    for(int j=0;j<TamanhoVetor;j++){
         if(medias[j]<mediaTurma) contador += 1;
         printf("%04d \t\t\t\t%.2f \t\t%.2f \t\t%.2f\n", matriculas[j], nota01[j], nota02[j], medias[j]);
 
