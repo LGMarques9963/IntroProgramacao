@@ -5,7 +5,7 @@
 #define TAMANHO_FRASE 501
 
 int main(){
-    char frase[501];
+    char frase[TAMANHO_FRASE];
     int indice = 0;
     int contador = 0;
     printf("Digite uma frase: \n");
