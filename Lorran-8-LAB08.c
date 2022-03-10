@@ -11,6 +11,8 @@ int main(){
     char endereco_ip[16];
     char sufixo[8];
 
+    strcpy(endereco_ip,"");
+    
     printf("Entre com o prefixo do endereco de IP: \n");
     gets(prefixo);
 
