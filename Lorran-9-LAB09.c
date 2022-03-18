@@ -8,7 +8,10 @@ int main(){
 	int i,j,aux;
     for(i=0;i<LINHAS_MATRIZ;i++){
         for(j=0;j<COLUNAS_MATRIZ;j++){
-            scanf("%i", &matriz[i][j]);
+            do{
+                scanf("%i", &matriz[i][j]);
+            }while ( (matriz[i][j]>30) || (matriz[i][j]<1) );
+            
         }
     }
 	
