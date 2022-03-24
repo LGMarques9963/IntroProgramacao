@@ -8,45 +8,47 @@ MATRICULA: 00304739
 
 #define COLUNAS_MATRIZ 3
 #define LINHAS_MATRIZ 6
-
+#define NOTA_MAXIMA 10
+#define NOTA_MINIMA 0
 int main(){
 
     float matriz[LINHAS_MATRIZ][COLUNAS_MATRIZ];
-	int i,j,aux;
+	int i,j,menorNota,indiceMenorNota;
 
     for(i=0;i<LINHAS_MATRIZ;i++){
-        printf("Escreva as notas do Aluno %i\n", i);
+        printf("\nEscreva as notas do Aluno %i\n", i);
         for(j=0;j<COLUNAS_MATRIZ;j++){
             do{
-                printf("Nota da prova %i", j);
-                scanf("%d", &matriz[i][j]);
-                printf("\n")
-            }while ( (matriz[i][j]<0) || (matriz[i][j]>10) );  //As notas devem ser entre 0 e 10
+                printf("Nota da prova %i: ", j);
+                scanf("%f", &matriz[i][j]);
+                //printf("\n");
+            }while ( (matriz[i][j]<NOTA_MINIMA) || (matriz[i][j]>NOTA_MAXIMA) );  //As notas devem ser entre 0 e 10
             
         }
     }
 	
 
 	
-	printf("\nNro Aluno\t\tProva 0\t\tProva 1\t\tProva 2\n");
+	printf("\nNro Aluno\t\tProva 0\t\t\tProva 1\t\t\tProva 2\n");
 
     for(i=0;i<LINHAS_MATRIZ;i++){
-        printf("%i\t",i);
-        aux = 10;
+        printf("\t%i\t\t",i);
         for(j=0;j<COLUNAS_MATRIZ;j++){
-            if(matriz[i][j]<aux) aux=j;
-            printf("%d\t", matriz[i][j]);
+            printf("%f\t\t", matriz[i][j]);
         }
         printf("\n");
 	}
 	
-	printf("\nVALORES MAXIMOS DE CADA COLUNA\n");
+	printf("\n");
 	for(i=0;i<LINHAS_MATRIZ;i++){
-		aux = 0;
-		for(j=0;j<LINHAS_MATRIZ;j++){
-			if(matriz[j][i]>aux) aux=matriz[j][i]; 
+		menorNota = NOTA_MAXIMA;
+		for(j=0;j<COLUNAS_MATRIZ;j++){
+			if(matriz[i][j]<menorNota) {
+				menorNota=matriz[i][j];
+				indiceMenorNota = j;	
+			}
 		}
-		printf("[%i]: %i \t", i,aux);
+		printf("Aluno [%i] menor nota na prova %i\t\n", i,indiceMenorNota);
 	}
 	printf("\n");
 
