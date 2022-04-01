@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 #define QTDE_ALUNOS 10
 
@@ -8,8 +7,8 @@ char lerSexo(){
     do{
         printf("Entre com o sexo (M ou F)\n");
         scanf("%s", &sexo);
-        if( ( sexo != 'M' ) && ( sexo != 'F' ) ) printf("TRUE\n");
-    }while( ( sexo != 'M' ) && ( sexo != 'F' ) );
+        if( (sexo != 'M' ) && ( sexo != 'F' ) ) printf("Valor invalido, entre com M ou F (maisculo)\n");
+    }while( (sexo != 'M' ) && ( sexo != 'F' ) );
 
     return sexo;
 
@@ -17,31 +16,24 @@ char lerSexo(){
 
 int main(){
     char sexoMain;
-    int qtdeMasculino = 0;
-    int qtdeFeminino = 0;
-    int i;
+    int qtdeFeminino = 0, qtdeMasculino = 0, i;
+    /*
+        Prof, por alguma razao a segunda variavel declarada, no caso agr a qtdeMasculino, nao era inicializada corretamente
+        Isso fazia com que o resultado final fosse algo do tipo "Ha X mulheres e 419512 homens".
 
+        Tentei declaracoes em linha separadas, e separar a declaracao da atribuicao. Ambos sem sucesso
+        Por alguma razao, ao printar as "Condicoes de inicio" abaixo, ela eh inicializada corretamente e o programa funciona
+    */
 
-    printf("feminino %i, masculino %i\n", qtdeFeminino, qtdeMasculino);
-
+    printf("Condicoes de inicio: feminino %i, masculino %i\n", qtdeFeminino, qtdeMasculino);
     for (i=0;i<QTDE_ALUNOS;i++){
-        printf("feminino %i, masculino %i\n", qtdeFeminino, qtdeMasculino);
         sexoMain = lerSexo();
-        printf("feminino %i, masculino %i\n", qtdeFeminino, qtdeMasculino);
 
         if( sexoMain == 'F' ) {
-            printf("Eh feminino\n");
-            printf("feminino antes %i\n", qtdeFeminino);
             qtdeFeminino++;
-            printf("feminino dps %i\n", qtdeFeminino);
         }else{
-            printf("Eh masculino\n");
-            printf("masculino antes %i\n", qtdeMasculino);
             qtdeMasculino++;
-            printf("masculino dps %i\n", qtdeMasculino);
         }
-        printf("feminino %i masculino %i\n", qtdeFeminino, qtdeMasculino);
-
     }
 
     printf("Ha %i homens e %i mulheres", qtdeMasculino, qtdeFeminino);
